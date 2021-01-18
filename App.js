@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
   return (
     <div>
-      <Folder name="Desktop" isOpen={true}>
+      <Folder name="Desktop">
         <Folder name="Music">
           <File name="all_star.mp4" />
           <File name="express_file.mp4" />
@@ -19,11 +19,15 @@ function App() {
 
 const Folder = (props) => {
   // const borderStyle = { border: '2px solid blue' };
-  console.log(props)
+  const [isOpen, setIsOpen] = useState(true);
+  const { name, children } = props;
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  }
   return <div>
-    {props.name}
+    <span onClick={handleClick}>{name}</span>
     <div style={{ marginLeft: '15px' }}>
-      {props.isOpen ? props.children : null}
+      {isOpen ? children : null}
     </div>
   </div>
 }
