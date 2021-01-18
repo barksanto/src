@@ -21,9 +21,8 @@ const Folder = (props) => {
   // const borderStyle = { border: '2px solid blue' };
   const [isOpen, setIsOpen] = useState(true);
   const { name, children } = props;
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  }
+  const handleClick = () => setIsOpen(!isOpen);
+
   return <div>
     <span onClick={handleClick}>{name}</span>
     <div style={{ marginLeft: '15px' }}>
